@@ -1,0 +1,41 @@
+#N canvas 255 237 450 363 12;
+#X obj 75 25 cnv 15 334 178 canvas rcv_canvas empty 20 12 0 14 #e0e0e0
+#404040 0;
+#X obj 90 52 tgl 132 0 on_off rcv_on_off ON/OFF 50 63 0 10 #ff91c0
+#000000 #ffffff 0 1;
+#X obj 268 51 vsl 45 128 0 127 0 0 frequency rcv_frequency frequency
+-5 -11 0 10 #9ed6e2 #000000 #000000 7700 1;
+#X obj 332 51 vsl 45 128 0.01 1 1 0 volume rcv_volume volume 2 -10
+0 10 #cbcbcb #000000 #000000 11400 1;
+#N canvas 713 114 571 427 pdwp-harmonic-oscillator.pd 0;
+#X obj 170 138 osc~ 440;
+#X obj 207 199 *~;
+#X obj 110 85 mtof;
+#X obj 111 112 sig~;
+#X floatatom 90 152 5 0 0 0 - - -, f 5;
+#X obj 113 20 r frequency;
+#X obj 335 56 r volume;
+#X floatatom 408 86 5 0 0 0 - - -, f 5;
+#X obj 239 280 dac~;
+#X obj 240 14 r on_off;
+#X msg 240 43 \$1 50;
+#X obj 170 167 *~;
+#X obj 240 72 line~;
+#X msg 335 85 \$1 20;
+#X obj 335 114 line~;
+#X connect 0 0 11 0;
+#X connect 1 0 8 0;
+#X connect 1 0 8 1;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X connect 5 0 2 0;
+#X connect 5 0 4 0;
+#X connect 6 0 13 0;
+#X connect 6 0 7 0;
+#X connect 9 0 10 0;
+#X connect 10 0 12 0;
+#X connect 11 0 1 0;
+#X connect 12 0 11 1;
+#X connect 13 0 14 0;
+#X connect 14 0 1 1;
+#X restore 154 310 pd pdwp-harmonic-oscillator.pd;
