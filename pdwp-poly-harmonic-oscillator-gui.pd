@@ -1,67 +1,67 @@
-#N canvas 50 269 472 374 12;
-#X obj 57 13 cnv 15 396 273 canvas rcv_canvas empty 20 12 0 14 #e0e0e0
-#404040 0;
-#X obj 132 40 tgl 132 0 on_off rcv_on_off ON/OFF 50 63 0 10 #fc90c0
-#000000 #fcfcfc 1 1;
-#X obj 284 39 vsl 45 128 0.01 1 1 0 volume rcv_volume volume 2 -10
-0 10 #c8c8c8 #000000 #000000 3300 1;
-#X obj 75 201 hsl 100 25 0 127 0 0 f1 rcv_f1 freq.\ 1 -2 -8 0 10 #b8d779
-#000000 #000000 4400 1;
-#X obj 75 243 hsl 100 25 0 127 0 0 vol_f1 rcv_vol_f1 vol.\ f1 -2 -8
-0 10 #929292 #000000 #000000 3200 1;
-#X obj 200 201 hsl 100 25 0 127 0 0 f2 rcv_f2 freq.\ 2 -2 -8 0 10 #b8d779
-#000000 #000000 3300 1;
-#X obj 200 243 hsl 100 25 0 127 0 0 vol_f2 rcv_vol_f2 vol.\ 2 -2 -8
-0 10 #929292 #000000 #000000 2500 1;
-#X obj 325 201 hsl 100 25 0 127 0 0 f3 rcv_f3 freq.\ 3 -2 -8 0 10 #b8d779
-#000000 #000000 3800 1;
-#X obj 325 243 hsl 100 25 0 127 0 0 vol_f3 rcv_vol_f3 vol. -2 -8 0
-10 #929292 #000000 #000000 1100 1;
-#N canvas 535 95 720 564 pdwb-poly-harmonic-oscillator.pd 1;
-#X obj 204 128 osc~ 440;
-#X obj 132 382 dac~ 1 2;
-#X obj 203 62 mtof;
-#X obj 204 89 sig~;
-#X floatatom 159 61 5 0 0 0 - - -, f 5;
-#X obj 206 236 +~;
-#X obj 382 131 osc~ 440;
-#X obj 381 65 mtof;
-#X obj 382 92 sig~;
-#X floatatom 337 64 5 0 0 0 - - -, f 5;
-#X obj 554 132 osc~ 440;
-#X obj 553 66 mtof;
-#X obj 554 93 sig~;
-#X floatatom 509 65 5 0 0 0 - - -, f 5;
-#X obj 204 166 *~;
-#X obj 206 310 *~;
-#X obj 382 166 *~;
-#X obj 554 166 *~;
-#X floatatom 150 99 5 0 0 0 - - -, f 5;
-#X floatatom 337 94 5 0 0 0 - - -, f 5;
-#X floatatom 501 96 5 0 0 0 - - -, f 5;
-#X obj 204 18 r f1;
-#X obj 273 146 r vol_f1;
-#X obj 298 265 r volume;
-#X obj 435 164 r vol_f2;
-#X obj 379 29 r f2;
-#X obj 559 19 r f3;
-#X obj 624 154 r vol_f3;
-#X msg 298 294 \$1 20;
-#X obj 298 323 line~;
-#X msg 274 175 \$1 20;
-#X obj 274 204 line~;
-#X msg 435 191 \$1 20;
-#X obj 435 220 line~;
-#X msg 608 199 \$1 20;
-#X obj 608 228 line~;
-#X obj 38 164 r filter_frequency;
-#X obj 38 193 mtof;
-#X obj 383 286 loadbang;
-#X msg 383 315 1;
-#X floatatom 2 218 5 0 0 0 - - -, f 5;
-#X obj 206 276 vcf~ 1;
-#X obj 45 252 line~;
-#X msg 38 222 \$1 20;
+#N canvas 429 23 450 398 12;
+#X obj 108 35 tgl 132 0 on_off rcv_on_off ON/OFF 50 63 0 10 #fc90c0
+#000000 #fcfcfc 0 1;
+#X obj 260 34 vsl 45 128 0.01 1 1 0 volume rcv_volume volume 2 -10
+0 10 #c8c8c8 #000000 #000000 0 1;
+#X obj 51 196 hsl 100 25 0 127 0 0 f1 rcv_f1 frequency_1 -2 -8 0 10
+#b8d779 #000000 #000000 0 1;
+#X obj 51 238 hsl 100 25 0 127 0 0 vol_f1 rcv_vol_f1 volume_1 -2 -8
+0 10 #929292 #000000 #000000 0 1;
+#X obj 176 196 hsl 100 25 0 127 0 0 f2 rcv_f2 frequency_2 -2 -8 0 10
+#b8d779 #000000 #000000 0 1;
+#X obj 176 238 hsl 100 25 0 127 0 0 vol_f2 rcv_vol_f2 volume_2 -2 -8
+0 10 #929292 #000000 #000000 0 1;
+#X obj 301 196 hsl 100 25 0 127 0 0 f3 rcv_f3 frequency_3 -2 -8 0 10
+#b8d779 #000000 #000000 0 1;
+#X obj 301 238 hsl 100 25 0 127 0 0 vol_f3 rcv_vol_f3 volume_3 -2 -8
+0 10 #929292 #000000 #000000 0 1;
+#X obj 325 35 vsl 45 128 0 127 0 0 filter_frequency rcv_filter_frequency
+VCO 0 -9 0 10 #80c3c6 #000000 #000000 0 1;
+#N canvas 708 73 609 565 totally-new-core.pd 1;
+#X obj 221 -89 osc~ 440;
+#X obj 149 165 dac~ 1 2;
+#X obj 220 -155 mtof;
+#X obj 221 -128 sig~;
+#X floatatom 176 -156 5 0 0 0 - - -, f 5;
+#X obj 223 19 +~;
+#X obj 399 -86 osc~ 440;
+#X obj 398 -152 mtof;
+#X obj 399 -125 sig~;
+#X floatatom 354 -153 5 0 0 0 - - -, f 5;
+#X obj 571 -85 osc~ 440;
+#X obj 570 -151 mtof;
+#X obj 571 -124 sig~;
+#X floatatom 526 -152 5 0 0 0 - - -, f 5;
+#X obj 221 -51 *~;
+#X obj 223 93 *~;
+#X obj 399 -51 *~;
+#X obj 571 -51 *~;
+#X floatatom 167 -118 5 0 0 0 - - -, f 5;
+#X floatatom 354 -123 5 0 0 0 - - -, f 5;
+#X floatatom 518 -121 5 0 0 0 - - -, f 5;
+#X obj 221 -199 r f1;
+#X obj 290 -71 r vol_f1;
+#X obj 315 48 r volume;
+#X obj 452 -53 r vol_f2;
+#X obj 396 -188 r f2;
+#X obj 576 -198 r f3;
+#X obj 641 -63 r vol_f3;
+#X msg 315 77 \$1 20;
+#X obj 315 106 line~;
+#X msg 291 -42 \$1 20;
+#X obj 291 -13 line~;
+#X msg 452 -26 \$1 20;
+#X obj 452 3 line~;
+#X msg 625 -18 \$1 20;
+#X obj 625 11 line~;
+#X obj 55 -53 r filter_frequency;
+#X obj 55 -24 mtof;
+#X obj 400 69 loadbang;
+#X msg 400 98 1;
+#X floatatom 19 1 5 0 0 0 - - -, f 5;
+#X obj 223 59 vcf~ 1;
+#X obj 62 35 line~;
+#X msg 55 5 \$1 20;
 #X connect 0 0 14 0;
 #X connect 2 0 3 0;
 #X connect 2 0 18 0;
@@ -107,6 +107,4 @@
 #X connect 41 0 15 0;
 #X connect 42 0 41 1;
 #X connect 43 0 42 0;
-#X restore 115 313 pd pdwb-poly-harmonic-oscillator.pd;
-#X obj 349 40 vsl 45 128 0 127 0 0 filter_frequency rcv_filter_frequency
-VCO 0 -9 0 10 #80c3c6 #000000 #000000 2650 1;
+#X restore 125 314 pd totally-new-core.pd;
